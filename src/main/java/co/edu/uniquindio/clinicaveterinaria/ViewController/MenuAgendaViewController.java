@@ -97,7 +97,7 @@ public class MenuAgendaViewController {
 
         // Crear objeto Agenda
         String fechaString = fecha.toString(); // Formato yyyy-MM-dd
-        Agenda agenda = new Agenda(hora, fecha, mascota, veterinario);
+        Agenda agenda = new Agenda(hora, fechaString, mascota, veterinario);
 
         // Puedes guardar en lista estática si quieres
         System.out.println("Agenda registrada: " + mascota.getNombre() +

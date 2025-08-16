@@ -16,4 +16,6 @@ public class Historial {
     public void setConsultas(ArrayList<Consulta> consultas) {
         this.consultas = consultas;
     }
+
+
 }
