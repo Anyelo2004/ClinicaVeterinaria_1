@@ -1,17 +1,18 @@
 package co.edu.uniquindio.clinicaveterinaria.Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Agenda {
     public String hora;
-    public String fecha;
+    public LocalDate fecha;
     public Mascota mascota;
     public Veterinario veterinario;
 
     public static List<Agenda> listaAgenda = new ArrayList<>();
 
-    public Agenda(String hora, String fecha, Mascota mascota, Veterinario veterinario) {
+    public Agenda(String hora, LocalDate fecha, Mascota mascota, Veterinario veterinario) {
         this.hora = hora;
         this.fecha = fecha;
         this.mascota = mascota;
@@ -22,8 +23,8 @@ public class Agenda {
     public String getHora() { return hora; }
     public void setHora(String hora) { this.hora = hora; }
 
-    public String getFecha() { return fecha; }
-    public void setFecha(String fecha) { this.fecha = fecha; }
+    public LocalDate getFecha() { return fecha; }
+    public void setFecha(LocalDate fecha) { this.fecha = fecha; }
 
     public Mascota getMascota() { return mascota; }
     public void setMascota(Mascota mascota) { this.mascota = mascota; }

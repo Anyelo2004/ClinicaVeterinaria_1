@@ -66,7 +66,7 @@ public class MenuHistorialViewController {
         ObservableList<HistorialItem> datos = FXCollections.observableArrayList();
 
         for (Agenda a : Agenda.listaAgenda) {
-            datos.add(new HistorialItem("Cita", a.getFecha(), a.getHora(),
+            datos.add(new HistorialItem("Cita", a.getFecha().toString(), a.getHora(),
                     a.getMascota().getNombre(),
                     a.getVeterinario().getNombre(),
                     "", "", ""));
@@ -74,7 +74,7 @@ public class MenuHistorialViewController {
 
         for (Consulta c : Consulta.listaConsultas) {
             Agenda a = c.getCita();
-            datos.add(new HistorialItem("Consulta", a.getFecha(), a.getHora(),
+            datos.add(new HistorialItem("Consulta", a.getFecha().toString(), a.getHora(),
                     a.getMascota().getNombre(),
                     a.getVeterinario().getNombre(),
                     c.getMotivo(),
@@ -95,7 +95,7 @@ public class MenuHistorialViewController {
 
         for (Agenda a : Agenda.listaAgenda) {
             if (a.getFecha().equals(fechaBuscada)) {
-                datos.add(new HistorialItem("Cita", a.getFecha(), a.getHora(),
+                datos.add(new HistorialItem("Cita", a.getFecha().toString(), a.getHora(),
                         a.getMascota().getNombre(),
                         a.getVeterinario().getNombre(),
                         "", "", ""));
@@ -105,7 +105,7 @@ public class MenuHistorialViewController {
         for (Consulta c : Consulta.listaConsultas) {
             if (c.getCita().getFecha().equals(fechaBuscada)) {
                 Agenda a = c.getCita();
-                datos.add(new HistorialItem("Consulta", a.getFecha(), a.getHora(),
+                datos.add(new HistorialItem("Consulta", a.getFecha().toString(), a.getHora(),
                         a.getMascota().getNombre(),
                         a.getVeterinario().getNombre(),
                         c.getMotivo(),
