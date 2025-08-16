@@ -1,49 +1,26 @@
 package co.edu.uniquindio.clinicaveterinaria.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Consulta {
-    public String diagnostico;
-    public String motivoConsulta;
-    public String tratamiento;
-    public ArrayList<Mascota> mascotas;
+    private Agenda cita; // Cita asociada
+    private String motivo;
+    private String diagnostico;
+    private String tratamiento;
 
-    public Consulta(String diagnostico, String motivoConsulta, String tratamiento) {
+    public static List<Consulta> listaConsultas = new ArrayList<>();
+
+    public Consulta(Agenda cita, String motivo, String diagnostico, String tratamiento) {
+        this.cita = cita;
+        this.motivo = motivo;
         this.diagnostico = diagnostico;
-        this.motivoConsulta = motivoConsulta;
         this.tratamiento = tratamiento;
-        this.mascotas = new ArrayList<>();
+        listaConsultas.add(this); // Se guarda automáticamente
     }
 
-    public String getDiagnostico() {
-        return diagnostico;
-    }
-
-    public void setDiagnostico(String diagnostico) {
-        this.diagnostico = diagnostico;
-    }
-
-    public String getMotivoConsulta() {
-        return motivoConsulta;
-    }
-
-    public void setMotivoConsulta(String motivoConsulta) {
-        this.motivoConsulta = motivoConsulta;
-    }
-
-    public String getTratamiento() {
-        return tratamiento;
-    }
-
-    public void setTratamiento(String tratamiento) {
-        tratamiento = tratamiento;
-    }
-
-    public ArrayList<Mascota> getMascotas() {
-        return mascotas;
-    }
-
-    public void setMascotas(ArrayList<Mascota> mascotas) {
-        this.mascotas = mascotas;
-    }
+    public Agenda getCita() { return cita; }
+    public String getMotivo() { return motivo; }
+    public String getDiagnostico() { return diagnostico; }
+    public String getTratamiento() { return tratamiento; }
 }

@@ -1,47 +1,79 @@
 package co.edu.uniquindio.clinicaveterinaria.ViewController;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
+import co.edu.uniquindio.clinicaveterinaria.Model.Agenda;
+import co.edu.uniquindio.clinicaveterinaria.Model.Consulta;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 public class MenuConsultaViewController {
 
     @FXML
-    private ResourceBundle resources;
+    private Button Button_AtrasMenuInicio, Button_GuardarConsulta;
 
     @FXML
-    private URL location;
+    private TextField TextFiel_MotivoConsulta, TextField_Diagnostico, TextField_Tratamiento;
 
     @FXML
-    private Button Button_AtrasMenuInicio;
-
-    @FXML
-    private Button Button_Salir;
-
-    @FXML
-    private TextField TextFiel_MotivoConsulta;
-
-    @FXML
-    private TextField TextField_Diagnostico;
-
-    @FXML
-    private TextField TextField_Tratamiento;
-
-    @FXML
-    void OnClick_Salir(ActionEvent event) {
-
-    }
+    private ComboBox<Agenda> cmbCitas;
 
     @FXML
     void initialize() {
-        assert Button_AtrasMenuInicio != null : "fx:id=\"Button_AtrasMenuInicio\" was not injected: check your FXML file 'MenuConsulta.fxml'.";
-        assert Button_Salir != null : "fx:id=\"Button_Salir\" was not injected: check your FXML file 'MenuConsulta.fxml'.";
-        assert TextFiel_MotivoConsulta != null : "fx:id=\"TextFiel_MotivoConsulta\" was not injected: check your FXML file 'MenuConsulta.fxml'.";
-        assert TextField_Diagnostico != null : "fx:id=\"TextField_Diagnostico\" was not injected: check your FXML file 'MenuConsulta.fxml'.";
-        assert TextField_Tratamiento != null : "fx:id=\"TextField_Tratamiento\" was not injected: check your FXML file 'MenuConsulta.fxml'.";
+        // citas registradas en Agenda al ComboBox
+        cmbCitas.setItems(FXCollections.observableArrayList(Agenda.listaAgenda));
 
+        // texto resumido de cada cita
+        cmbCitas.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            protected void updateItem(Agenda item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" :
+                        item.getFecha() + " " + item.getHora() + " - " + item.getMascota().getNombre());
+            }
+        });
+        cmbCitas.setButtonCell(new ListCell<>() {
+            @Override
+            protected void updateItem(Agenda item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty || item == null ? "" :
+                        item.getFecha() + " " + item.getHora() + " - " + item.getMascota().getNombre());
+            }
+        });
+    }
+
+    @FXML
+    void OnClick_AtrasMenuInicio(ActionEvent event) {
+        Stage stageActual = (Stage) Button_AtrasMenuInicio.getScene().getWindow();
+        stageActual.close();
+    }
+
+    @FXML
+    void OnClick_GuardarConsulta(ActionEvent event) {
+        Agenda citaSeleccionada = cmbCitas.getValue();
+        if (citaSeleccionada == null) {
+            System.out.println("Selecciona una cita para guardar la consulta");
+            return;
+        }
+
+        String motivo = TextFiel_MotivoConsulta.getText();
+        String diagnostico = TextField_Diagnostico.getText();
+        String tratamiento = TextField_Tratamiento.getText();
+
+        if (motivo.isEmpty() || diagnostico.isEmpty() || tratamiento.isEmpty()) {
+            System.out.println("Completa todos los campos de la consulta");
+            return;
+        }
+
+        // Crear la consulta y guardarla
+        Consulta consulta = new Consulta(citaSeleccionada, motivo, diagnostico, tratamiento);
+        System.out.println("Consulta guardada para la cita de " + citaSeleccionada.getMascota().getNombre());
+
+        // Limpiar campos
+        TextFiel_MotivoConsulta.clear();
+        TextField_Diagnostico.clear();
+        TextField_Tratamiento.clear();
+        cmbCitas.getSelectionModel().clearSelection();
     }
 }

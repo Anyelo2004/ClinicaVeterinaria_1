@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.clinicaveterinaria.ViewController.MenuAgendaViewController"
+      spacing="15" alignment="TOP_CENTER"
+      style="-fx-background-color: linear-gradient(to bottom, #e1f5fe, #ffffff);" prefWidth="450" prefHeight="370">
+
+    <children>
+        <Label text="📅 Gestión de Agenda" style="-fx-text-fill: #0277bd; -fx-font-weight: bold;">
+            <font><Font size="22"/></font>
+        </Label>
+
+        <GridPane hgap="10" vgap="10" alignment="CENTER">
+            <children>
+                <Label text="Fecha:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <DatePicker fx:id="datePickerFecha" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                
+                <Label text="Hora:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="Text_registroHora" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                
+                <Label text="Mascota atendida:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbMascota" promptText="Seleccione mascota" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                
+                <Label text="Veterinario asignado:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="cmbVeterinario" promptText="Seleccione veterinario" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </children>
+        </GridPane>
+
+        <HBox spacing="10" alignment="CENTER">
+            <children>
+                <Button text="Registrar" prefWidth="120" style="-fx-background-color: #29b6f6; -fx-text-fill: white; -fx-font-weight: bold;" onAction="#Onclick_RegistrarAgenda"/>
+                <Button fx:id="Button_AtrasMenuInicio" text="Atrás" prefWidth="120" onAction="#OnClick_AtrasMenuInicio"
+                        style="-fx-background-color: #0288d1; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>

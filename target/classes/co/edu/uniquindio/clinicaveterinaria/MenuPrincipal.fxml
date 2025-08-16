@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.clinicaveterinaria.ViewController.MenuPrincipalController"
+      spacing="20" alignment="TOP_CENTER"
+      style="-fx-background-color: linear-gradient(to bottom, #e0f7fa, #ffffff);" prefWidth="450" prefHeight="400">
+
+    <children>
+        <VBox spacing="5" alignment="CENTER" style="-fx-padding: 20;">
+            <children>
+                <Label text="🐾 Mundo Huellitas 🐾" style="-fx-text-fill: #2c3e50; -fx-font-weight: bold;">
+                    <font>
+                        <Font size="26"/>
+                    </font>
+                </Label>
+                <Label text="Carrera 23 #15 - 44" style="-fx-text-fill: #7f8c8d;">
+                    <font>
+                        <Font size="14"/>
+                    </font>
+                </Label>
+                <Label text="Tel: +57 310 456 7890" style="-fx-text-fill: #7f8c8d;">
+                    <font>
+                        <Font size="14"/>
+                    </font>
+                </Label>
+            </children>
+        </VBox>
+
+        <VBox spacing="12" alignment="CENTER">
+            <children>
+                <Button text="Mascota" onAction="#abrirMascota" style="-fx-background-color: #81d4fa; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="150"/>
+                <Button text="Veterinario" onAction="#abrirVeterinario" style="-fx-background-color: #4dd0e1; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="150"/>
+                <Button text="Agenda" onAction="#abrirAgenda" style="-fx-background-color: #26c6da; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="150"/>
+                <Button text="Consulta" onAction="#abrirConsulta" style="-fx-background-color: #00acc1; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="150"/>
+                <Button text="Historial" onAction="#abrirHistorial" style="-fx-background-color: #0097a7; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="150"/>
+            </children>
+        </VBox>
+    </children>
+</VBox>

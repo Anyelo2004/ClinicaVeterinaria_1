@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="co.edu.uniquindio.clinicaveterinaria.ViewController.MenuHistorialViewController"
+      spacing="15" alignment="TOP_CENTER"
+      style="-fx-background-color: linear-gradient(to bottom, #c8e6c9, #ffffff);" prefWidth="500" prefHeight="450">
+
+    <children>
+        <Label text="📖 Historial de Consultas y Citas" style="-fx-text-fill: #2e7d32; -fx-font-weight: bold;">
+            <font><Font size="22"/></font>
+        </Label>
+
+        <HBox spacing="10" alignment="CENTER">
+            <children>
+                <Label text="Buscar por fecha (YYYY-MM-DD):"/>
+                <TextField fx:id="txtBuscarFecha" promptText="Ingrese fecha"/>
+                <Button text="Buscar" onAction="#OnClick_BuscarPorFecha"/>
+                <Button text="Mostrar todo" onAction="#OnClick_MostrarTodo"/>
+            </children>
+        </HBox>
+
+        <TableView fx:id="tablaHistorial" prefHeight="300" prefWidth="480">
+            <columns>
+                <TableColumn fx:id="colTipo" text="Tipo" prefWidth="80"/>
+                <TableColumn fx:id="colFecha" text="Fecha" prefWidth="80"/>
+                <TableColumn fx:id="colHora" text="Hora" prefWidth="60"/>
+                <TableColumn fx:id="colMascota" text="Mascota" prefWidth="100"/>
+                <TableColumn fx:id="colVeterinario" text="Veterinario" prefWidth="100"/>
+                <TableColumn fx:id="colMotivo" text="Motivo" prefWidth="120"/>
+                <TableColumn fx:id="colDiagnostico" text="Diagnóstico" prefWidth="120"/>
+                <TableColumn fx:id="colTratamiento" text="Tratamiento" prefWidth="120"/>
+            </columns>
+        </TableView>
+
+        <HBox spacing="10" alignment="CENTER">
+            <children>
+                <Button fx:id="Button_AtrasMenuInicio" text="Atrás" prefWidth="120" onAction="#OnClick_AtrasMenuInicio"
+                        style="-fx-background-color: #388e3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>

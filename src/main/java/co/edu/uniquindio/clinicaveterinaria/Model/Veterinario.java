@@ -14,6 +14,8 @@ public class Veterinario extends Persona{
         consultas = new ArrayList<>();
     }
 
+public static ArrayList<Veterinario> listaVeterinarios = new ArrayList<>();
+
     public String getLicProfesional() {
         return licProfesional;
     }
